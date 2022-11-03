@@ -1,6 +1,7 @@
 #include "cmath.h"
 
 // This is actually a pretty shitty approximate
+// Accurate to only ~3 decimals
 static double _arcsin_abramowitz_aprox(const double x)
 {
     if (x < 0) return -_arcsin_abramowitz_aprox(-x);
@@ -24,7 +25,6 @@ int m_acos(const float ratio, float* result)
     return 0;
 }
 
-#include <stdio.h>
 int m_atan(const float ratio, float* result)
 {
     if (ratio == 0) return 1;

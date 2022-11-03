@@ -20,8 +20,8 @@ static float _sqrt_newton_aprox(float x)
 float _sqrt_babylonian_aprox(const float x)  
 {
   union {
-    int i;
-    float x;
+      int i;
+      float x;
   } u;
 
   u.x = x;

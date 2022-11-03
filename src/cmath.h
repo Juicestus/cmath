@@ -17,6 +17,9 @@ static const float
 	M_SQRT2 = 1.41421356237309504880, // sqrt(2)	
 	M_SQRT1_2 = 0.707106781186547524401; // 1/sqrt(2)	
 
+// Simple functions
+int m_absf(const float, float*);
+
 // Square root functions (impl_sqrt.c)
 int m_sqrtf(const float, float*);
 
