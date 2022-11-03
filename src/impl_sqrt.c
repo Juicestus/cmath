@@ -7,7 +7,7 @@ static const int ITERATIONS = 3;
 // and then takes the resiprocol
 static float _sqrt_newton_aprox(float x)
 {
-    float xhalf = 0.5f * x;
+    const float xhalf = 0.5f * x;
     int i = *(int*) &x;
     i = 0x5f3759df - (i >> 1);
     x = *(float*) &i;
