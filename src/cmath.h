@@ -19,6 +19,7 @@ static const float
 
 // Simple functions
 int m_absf(const float, float*);
+int m_signf(const float, float*);
 
 // Square root functions (impl_sqrt.c)
 int m_sqrtf(const float, float*);

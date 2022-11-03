@@ -39,12 +39,15 @@ int main(const int argc, const char** argv)
 
     // PRINT_CALL_F(m_asin, .5);
     // PRINT_CALL_F(m_acos, .5);
-    // PRINT_CALL_F(m_atan, .5);
-    // PRINT_CALL_F(m_atan, 2.5);
-    // PRINT_CALL_F(m_atan, -2.5);
+    PRINT_CALL_F(m_atan, .5);
+    PRINT_CALL_F(m_atan, 2.5);
+    PRINT_CALL_F(m_atan, -2.5);
 
-    PRINT_CALL_F(m_absf, 1.);
-    PRINT_CALL_F(m_absf, -1.);
+    // PRINT_CALL_F(m_absf, 1.);
+    // PRINT_CALL_F(m_absf, -1.);
+    // PRINT_CALL_F(m_signf, -1.5);
+    // PRINT_CALL_F(m_signf, 2859.);
+    // PRINT_CALL_F(m_signf, -8272.5);
 
     return 0;
 }

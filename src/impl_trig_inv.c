@@ -29,9 +29,10 @@ int m_atan(const float ratio, float* result)
 {
     if (ratio == 0) return 1;
     const float radicand = 1. / ((ratio * ratio) + 1);
-    float r_sqrt, r_acos;
+    float r_sqrt, r_acos, r_signf;
     if (m_sqrtf(radicand, &r_sqrt)) return 1;
     if (m_acos(r_sqrt, &r_acos)) return 1;
-    *result = r_acos;
+    if (m_signf(ratio, &r_signf)) return 1;
+    *result = r_acos * r_signf;
     return 0;
 }
