@@ -33,12 +33,15 @@ int main(const int argc, const char** argv)
 
     // PRINT_CALL_F(m_sqrtf, 4.);
     // PRINT_CALL_F(m_sqrtf, 2.);
-    // PRINT_CALL_F(m_sqrtf, .5);
+    PRINT_CALL_F(m_sqrtf, .8);
     // PRINT_CALL_F(m_sqrtf, 2.5);
     // PRINT_CALL_F(m_sqrtf, -1.);
 
     PRINT_CALL_F(m_asin, .5);
     PRINT_CALL_F(m_acos, .5);
+    PRINT_CALL_F(m_atan, .5);
+    PRINT_CALL_F(m_atan, 2.5);
+    PRINT_CALL_F(m_atan, -2.5);
 
     return 0;
 }

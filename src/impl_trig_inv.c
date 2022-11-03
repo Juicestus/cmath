@@ -23,3 +23,15 @@ int m_acos(const float ratio, float* result)
     *result = M_PI_2 - r_asin;
     return 0;
 }
+
+#include <stdio.h>
+int m_atan(const float ratio, float* result)
+{
+    if (ratio == 0) return 1;
+    const float radicand = 1. / ((ratio * ratio) + 1);
+    float r_sqrt, r_acos;
+    if (m_sqrtf(radicand, &r_sqrt)) return 1;
+    if (m_acos(r_sqrt, &r_acos)) return 1;
+    *result = r_acos;
+    return 0;
+}

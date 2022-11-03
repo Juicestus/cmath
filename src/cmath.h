@@ -31,5 +31,6 @@ int m_cot(const float, float*);
 // Inverse trig functions, defined in impl_trig_inv.c
 int m_asin(const float, float*);
 int m_acos(const float, float*);
+int m_atan(const float, float*);
 
 #endif
