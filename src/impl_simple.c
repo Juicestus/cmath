@@ -18,4 +18,3 @@ int m_signf(const float x, float* y)
     *y = (x > 0) - (x < 0);
     return 0;
 }
-

@@ -32,11 +32,11 @@ int main(const int argc, const char** argv)
     // printf("%lu\n", sizeof(float) * 8);
     // printf("%lu\n", sizeof(double) * 8);
 
-    // PRINT_CALL_F_1_1(m_sqrtf, 4.);
-    // PRINT_CALL_F_1_1(m_sqrtf, 2.);
-    // PRINT_CALL_F_1_1(m_sqrtf, .8);
-    // PRINT_CALL_F_1_1(m_sqrtf, 2.5);
-    // PRINT_CALL_F_1_1(m_sqrtf, -1.);
+    // PRINT_CALL_F_1_1(m_sqrt, 4.);
+    // PRINT_CALL_F_1_1(m_sqrt, 2.);
+    // PRINT_CALL_F_1_1(m_sqrt, .8);
+    // PRINT_CALL_F_1_1(m_sqrt, 2.5);
+    // PRINT_CALL_F_1_1(m_sqrt, -1.);
 
     // PRINT_CALL_F_1_1(m_asin, .5);
     // PRINT_CALL_F_1_1(m_acos, .5);
@@ -59,7 +59,14 @@ int main(const int argc, const char** argv)
     // PRINT_CALL_F_1_1(m_ln, 1.);
     // PRINT_CALL_F_1_1(m_ln, 2.5);
     // PRINT_CALL_F_1_1(m_ln, -2.5);
-    PRINT_CALL_F_2_1(m_log, 2., 5.);
+    // PRINT_CALL_F_2_1(m_log, 2., 5.);
+
+    PRINT_CALL_F_2_1(m_pow, 2., 5.);
+    PRINT_CALL_F_2_1(m_pow, 4., .5);
+    PRINT_CALL_F_2_1(m_pow, -2., 5.);
+    PRINT_CALL_F_2_1(m_pow, -2., 4.);
+    PRINT_CALL_F_2_1(m_pow, -2., .5);
+    PRINT_CALL_F_2_1(m_pow, -2., .4);
 
     return 0;
 }

@@ -1,7 +1,6 @@
 #ifndef CMATH_H_
 #define CMATH_H_
 
-
 static const float 
 	M_E	= 2.71828182845904523536, // e
 	M_LOG2E	= 1.44269504088896340736, // log2(e)
@@ -21,8 +20,12 @@ static const float
 int m_absf(const float, float*);
 int m_signf(const float, float*);
 
-// Square root functions (impl_sqrt.c)
-int m_sqrtf(const float, float*);
+// Exponent functions (impl_exp.c)
+int m_sqrt(const float, float*);
+int m_exp(const float, float*);
+int m_ln(const float, float*);
+int m_log(const float, const float, float*);
+int m_pow(const float, const float, float*);
 
 // Trig functions (impl_trig.c)
 int m_sin(const float, float*);
@@ -32,14 +35,9 @@ int m_csc(const float, float*);
 int m_sec(const float, float*);
 int m_cot(const float, float*);
 
-// Inverse trig functions, defined in impl_trig_inv.c
+// Inverse trig functions (impl_arc.c)
 int m_asin(const float, float*);
 int m_acos(const float, float*);
 int m_atan(const float, float*);
-
-// Log functions (impl_log.c)
-int m_exp(const float, float*);
-int m_ln(const float, float*);
-int m_log(const float, const float, float*);
 
 #endif

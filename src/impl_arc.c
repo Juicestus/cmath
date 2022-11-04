@@ -6,7 +6,7 @@ static double _arcsin_abramowitz_aprox(const double x)
 {
     if (x < 0) return -_arcsin_abramowitz_aprox(-x);
     float r_sqrt;
-    if (m_sqrtf(1 - x, &r_sqrt)) return 1;
+    if (m_sqrt(1 - x, &r_sqrt)) return 1;
     return M_PI_2 - r_sqrt * (1.5707288 - 0.2121144 * x + 0.0742610 * x * x - 0.0187293 * x * x * x);
 }
 
@@ -30,7 +30,7 @@ int m_atan(const float ratio, float* result)
     if (ratio == 0) return 1;
     const float radicand = 1. / ((ratio * ratio) + 1);
     float r_sqrt, r_acos, r_signf;
-    if (m_sqrtf(radicand, &r_sqrt)) return 1;
+    if (m_sqrt(radicand, &r_sqrt)) return 1;
     if (m_acos(r_sqrt, &r_acos)) return 1;
     if (m_signf(ratio, &r_signf)) return 1;
     *result = r_acos * r_signf;
