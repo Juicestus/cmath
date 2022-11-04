@@ -17,7 +17,7 @@ static const float
 	M_SQRT2 = 1.41421356237309504880, // sqrt(2)	
 	M_SQRT1_2 = 0.707106781186547524401; // 1/sqrt(2)	
 
-// Simple functions
+// Simple functions (impl_simple.c)
 int m_absf(const float, float*);
 int m_signf(const float, float*);
 
@@ -36,5 +36,8 @@ int m_cot(const float, float*);
 int m_asin(const float, float*);
 int m_acos(const float, float*);
 int m_atan(const float, float*);
+
+// Log functions (impl_log.c)
+int m_ln(const float, const float, float*);
 
 #endif
