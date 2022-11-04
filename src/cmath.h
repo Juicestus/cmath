@@ -38,6 +38,8 @@ int m_acos(const float, float*);
 int m_atan(const float, float*);
 
 // Log functions (impl_log.c)
-int m_ln(const float, const float, float*);
+int m_exp(const float, float*);
+int m_ln(const float, float*);
+int m_log(const float, const float, float*);
 
 #endif

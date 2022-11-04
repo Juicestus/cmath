@@ -50,10 +50,16 @@ int main(const int argc, const char** argv)
     // PRINT_CALL_F_1_1(m_signf, 2859.);
     // PRINT_CALL_F_1_1(m_signf, -8272.5);
 
-    PRINT_CALL_F_2_1(m_ln, .5, 1.);
-    PRINT_CALL_F_2_1(m_ln, 1., 1.);
-    PRINT_CALL_F_2_1(m_ln, 2.5, 1.);
-    PRINT_CALL_F_2_1(m_ln, -1., 1.);
+    // PRINT_CALL_F_1_1(m_exp, -.5);
+    // PRINT_CALL_F_1_1(m_exp, -2.5);
+    // PRINT_CALL_F_1_1(m_exp, 2.5);
+    // PRINT_CALL_F_1_1(m_ln, .5);
+    // PRINT_CALL_F_1_1(m_ln, -.5);
+    // PRINT_CALL_F_1_1(m_ln, 0.);
+    // PRINT_CALL_F_1_1(m_ln, 1.);
+    // PRINT_CALL_F_1_1(m_ln, 2.5);
+    // PRINT_CALL_F_1_1(m_ln, -2.5);
+    PRINT_CALL_F_2_1(m_log, 2., 5.);
 
     return 0;
 }
