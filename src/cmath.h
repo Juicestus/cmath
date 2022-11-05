@@ -43,6 +43,7 @@ int m_atan(const float, float *);
 // Normal Distribution functions (norm_dist.c)
 int m_zscore(const float, const float, const float, float *);
 int m_erf(const float, float *);
-int m_normalcdf(const float, const float, const float, const float, float *);
+int m_normalcdf(const float, const float, const float, float *);
+int m_normalcdfrange(const float, const float, const float, const float, float *);
 
 #endif
