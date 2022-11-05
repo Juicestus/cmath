@@ -18,9 +18,10 @@ Function declarations are in a single header file:
 
 Implementations are in seperate files:
 - impl_simple.c Simple miscellaneous functions
-- impl_exp.c Anything to do with exponents
+- impl_exp.c Exponent functions
 - impl_trig.c Trig functions
 - impl_arc.c Arc Trig functions
+- norm_dist.c Normal distribution functions
 
 Main function for testing:
 - test.c
@@ -30,4 +31,11 @@ Todo
 - more accurate arc trig functions
 - pow and root
 - hyperbolic trig functions
-- stat functions
+- stat functions:
+    -norm_dist.c:
+        z-score/percentile
+        normalcdf/invnorm
+        z-test
+    -t_dist.c:
+        t-score/percentile
+        t-test
