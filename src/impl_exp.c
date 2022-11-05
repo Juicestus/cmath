@@ -1,12 +1,12 @@
 #include "cmath.h"
 
-static const float SMOL = 1e-6;
+static const float EPSILON = 1e-6;
 
 static float _exp_aprox(float n)
 {
   int a = 0, b = n > 0;
   float c = 1, d = 1, e = 1;
-  for (b || (n = -n); e + SMOL < (e += (d *= n) / (c *= ++a)););
+  for (b || (n = -n); e + EPSILON < (e += (d *= n) / (c *= ++a)););
   return b ? e : 1 / e;
 }
 
@@ -17,7 +17,7 @@ static float _ln_aprox(const float n)
   if (n > 0) {
     for (c = n < 1 ? 1 / n : n; (c /= M_E) > 1; ++a);
     c = 1 / (c * M_E - 1), c = c + c + 1, f = c * c, b = 0;
-    for (d = 1, c /= 2; e = b, b += 1 / (d * c), b - e /* > SMOL */;)
+    for (d = 1, c /= 2; e = b, b += 1 / (d * c), b - e /* > EPSILON */;)
       d += 2, c *= f;
   } else b = (n == 0) / 0.;
   return n < 1 ? -(a + b) : a + b;
@@ -90,9 +90,29 @@ int m_pow(float a, const float b, float* result)
 {
   float r_sign;
   m_signf(a, &r_sign);
-  // I dont really know what/why the bottom rule does
-  if (r_sign < 0 && (int) (b * 100) % 4 != 0) return 1;
-  *result = _exp_aprox(b * _ln_aprox(a * r_sign)); 
-  if (b > 0 && (int) b % 2 == 1) *result *= r_sign;
+  *result = _exp_aprox(b * _ln_aprox(a * r_sign));
+  // if (a > )
   return 0;
 }
+
+// int m_pow(float a, const float b, float* result)
+// {
+//   // if (b < 0) return m_pow(1 / a, -b, result);
+//   int div = (int) b;
+//   float ip = 1;
+//   for (int i = 0; i < div; i++) ip *= a;
+//   float fp = _exp_aprox((b - div) * _ln_aprox(a));
+//   *result = ip * fp;
+//   return 0;
+// }
+
+// double my_pow(double a, double b, double epsilon)
+// {
+//     if (b < 0)
+//         return my_pow(1 / a, -b, epsilon);
+//     int div = (int)b;
+//     double integerPart = 1;
+//     for (int i = 0; i < div; i++)
+//         integerPart *= a;
+//     return integerPart * my_exp((b - div) * my_ln(a), epsilon);
+// }

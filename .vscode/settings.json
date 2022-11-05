@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.xt": "javascript",
+        "*.bc": "swift",
+        "*.cap": "capstone",
+        "types.h": "c"
+    }
+}

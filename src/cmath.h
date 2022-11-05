@@ -16,9 +16,24 @@ static const float
 	M_SQRT2 = 1.41421356237309504880, // sqrt(2)	
 	M_SQRT1_2 = 0.707106781186547524401; // 1/sqrt(2)	
 
+typedef union {
+	float f;
+	int i;
+} t_unholy;
+
+typedef union {
+  float f;
+  struct {
+    unsigned int mantisa : 23;
+    unsigned int exponent : 8;
+    unsigned int sign : 1;
+  } segments;
+} t_float_deconstruct;
+
 // Simple functions (impl_simple.c)
 int m_absf(const float, float*);
 int m_signf(const float, float*);
+int m_evenf(float, float*);
 
 // Exponent functions (impl_exp.c)
 int m_sqrt(const float, float*);
