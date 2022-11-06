@@ -1,4 +1,4 @@
-Justus' + (Suhas') Math Library in C
+Justus' + Suhas' Math Library in C
 
 Convention
 ==========
@@ -33,8 +33,7 @@ Todo
 - hyperbolic trig functions
 - stat functions:
     -norm_dist.c:
-        z-score/percentile
-        normalcdf/invnorm
+        unstandardized invnorm
         z-test
     -t_dist.c:
         t-score/percentile

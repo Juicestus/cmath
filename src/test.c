@@ -41,12 +41,6 @@
 int main(const int argc, const char **argv)
 {
     // PRINT_CALL_F_1_1(m_sin, M_PI / 6);
-    // PRINT_CALL_F_1_1(m_sin, M_PI / 4);
-    // PRINT_CALL_F_1_1(m_sin, M_PI / 3);
-    // PRINT_CALL_F_1_1(m_sin, M_PI / 2);
-    // PRINT_CALL_F_1_1(m_sin, M_PI);
-    // PRINT_CALL_F_1_1(m_sin, 2 * M_PI);
-    // PRINT_CALL_F_1_1(m_sin, 200 * M_PI);
 
     // const double x = M_PI_2 / 3.;
     // PRINT_CALL_F_1_1(m_sin, x);
@@ -56,8 +50,6 @@ int main(const int argc, const char **argv)
     // PRINT_CALL_F_1_1(m_sec, x);
     // PRINT_CALL_F_1_1(m_cot, x);
 
-    // PRINT_CALL_F_1_1(m_absf, -2.2);
-    // PRINT_CALL_F_1_1(m_absf, 5.2);
     // PRINT_CALL_F_1_1(m_absf, -773.20948852);
     // PRINT_CALL_F_1_1(m_absf, 2288489.20948852);
 
@@ -65,7 +57,6 @@ int main(const int argc, const char **argv)
     // printf("%lu\n", sizeof(double) * 8);
 
     // PRINT_CALL_F_1_1(m_sqrt, 4.);
-    // PRINT_CALL_F_1_1(m_sqrt, 2.);
     // PRINT_CALL_F_1_1(m_sqrt, .8);
     // PRINT_CALL_F_1_1(m_sqrt, 2.5);
     // PRINT_CALL_F_1_1(m_sqrt, -1.);
@@ -76,39 +67,29 @@ int main(const int argc, const char **argv)
     // PRINT_CALL_F_1_1(m_atan, 2.5);
     // PRINT_CALL_F_1_1(m_atan, -2.5);
 
-    // PRINT_CALL_F_1_1(m_absf, 1.);
-    // PRINT_CALL_F_1_1(m_absf, -1.);
     // PRINT_CALL_F_1_1(m_signf, -1.5);
     // PRINT_CALL_F_1_1(m_signf, 2859.);
     // PRINT_CALL_F_1_1(m_signf, -8272.5);
 
-    // PRINT_CALL_F_1_1(m_exp, -.5);
-    // PRINT_CALL_F_1_1(m_exp, -2.5);
+    // PRINT_CALL_F_1_1(m_exp, -4.5);
     // PRINT_CALL_F_1_1(m_exp, 2.5);
-    // PRINT_CALL_F_1_1(m_ln, .5);
     // PRINT_CALL_F_1_1(m_ln, -.5);
     // PRINT_CALL_F_1_1(m_ln, 0.);
     // PRINT_CALL_F_1_1(m_ln, 1.);
-    // PRINT_CALL_F_1_1(m_ln, 2.5);
-    // PRINT_CALL_F_1_1(m_ln, -2.5);
     // PRINT_CALL_F_2_1(m_log, 2., 5.);
 
-    // PRINT_CALL_F_2_1(m_pow, 2., 5.);
     // PRINT_CALL_F_2_1(m_pow, 4., .5);
     // PRINT_CALL_F_2_1(m_pow, -2., 5.);
-    // PRINT_CALL_F_2_1(m_pow, -2., 4.);
-    // PRINT_CALL_F_2_1(m_pow, -2., .5);
     // PRINT_CALL_F_2_1(m_pow, -2., .4);
     // PRINT_CALL_F_2_1(m_pow, .2, 2.);
     // PRINT_CALL_F_2_1(m_pow, -.2, 2.);
-    // PRINT_CALL_F_2_1(m_pow, .2, .2);
     // PRINT_CALL_F_2_1(m_pow, -.2, .2);
-    // PRINT_CALL_F_2_1(m_pow, .2, -.2);
     // PRINT_CALL_F_2_1(m_pow, -.2, -.2);
 
     // PRINT_CALL_F_3_1(m_zscore, 2., 2., 3.);
     // PRINT_CALL_F_3_1(m_normalcdf, 2., 0., 1.);
     // PRINT_CALL_F_4_1(m_normalcdfrange, 2., 5., 2.5, 0.5);
+    // PRINT_CALL_F_1_1(m_invnormalcdf_p, 0.341);
 
     return 0;
 }
