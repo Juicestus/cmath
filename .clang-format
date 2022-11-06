@@ -1,0 +1,24 @@
+# @: Justus Languell <jlanguell@extendable.co>
+BasedOnStyle: LLVM    
+IndentWidth: 2    
+ContinuationIndentWidth: 4    
+---
+Language: Cpp
+# AlignConsecutiveAssignments: false
+# AlignConsecutiveDeclarations: false
+DerivePointerAlignment: false    
+PointerAlignment: Left    
+ColumnLimit: 80    
+# AllowShortBlocksOnASingleLine: true    
+AllowShortCaseLabelsOnASingleLine: true    
+AllowShortEnumsOnASingleLine: true    
+AllowShortFunctionsOnASingleLine: false    
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse    
+AllowShortLoopsOnASingleLine: true    
+AllowShortIfStatementsOnASingleLine: true    
+IndentRequires: true    
+# BreakBeforeBraces: Attach
+BreakBeforeBraces: Stroustrup
+UseTab: Never
+AlignOperands: true
+AlignTrailingComments: true

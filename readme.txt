@@ -21,21 +21,15 @@ Implementations are in seperate files:
 - impl_exp.c Exponent functions
 - impl_trig.c Trig functions
 - impl_arc.c Arc Trig functions
-- norm_dist.c Normal distribution functions
+- impl_stat.c Stat functions
 
-Main function for testing:
-- test.c
+Testing:
+- test_macros.h Macros used for testing
+- test.c Main function for test cases
 
 Todo
 ====
 - more accurate arc trig functions
 - pow and root
 - hyperbolic trig functions
-- stat functions:
-    -norm_dist.c:
-        z-score/percentile
-        normalcdf/invnorm
-        z-test
-    -t_dist.c:
-        t-score/percentile
-        t-test
+- stat functions
