@@ -36,12 +36,12 @@ static const int ITERATIONS = 3;
 // and then takes the resiprocol
 static float _sqrt_newton_aprox(float x)
 {
-  const float xhalf = 0.5f * x;
+  const float xhalf = .5 * x;
   int i = *(int*)&x;
-  i = 0x5f3759df - (i >> 1);
+  i = 0x5f3759d - (i >> 1);
   x = *(float*)&i;
-  for (int i = 0; i < ITERATIONS; i++) x = x * (1.5f - xhalf * x * x);
-  return 1 / x;
+  for (int i = 0; i < ITERATIONS; i++) x = x * (1.5 - xhalf * x * x);
+  return 1. / x;
 }
 
 // Accurate where x > 1
@@ -59,27 +59,27 @@ float _sqrt_babylonian_aprox(const float x)
   return u.x;
 }
 
-int m_exp(const float n, float* result)
+int m_exp(float* result, const float n)
 {
   *result = _exp_aprox(n);
   return 0;
 }
 
-int m_ln(const float x, float* y)
+int m_ln(float* y, const float x)
 {
   if (x <= 0) return 1;
   *y = _ln_aprox(x);
   return 0;
 }
 
-int m_log(const float x, const float base, float* y)
+int m_log(float* y, const float x, const float base)
 {
   if (x <= 0) return 1;
   *y = _ln_aprox(x) / _ln_aprox(base);
   return 0;
 }
 
-int m_sqrt(const float x, float* y)
+int m_sqrt(float* y, const float x)
 {
   if (x < 0) return 1;
   if (x == 1)
@@ -94,10 +94,10 @@ int m_sqrt(const float x, float* y)
   return 0;
 }
 
-int m_pow(float a, const float b, float* result)
+int m_pow(float* result, float a, const float b)
 {
   float r_sign;
-  m_signf(a, &r_sign);
+  m_signf(&r_sign, a);
   // I dont really know what/why the bottom rule does
   if (r_sign < 0 && (int)(b * 100) % 4 != 0) return 1;
   *result = _exp_aprox(b * _ln_aprox(a * r_sign));

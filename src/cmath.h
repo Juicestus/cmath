@@ -19,34 +19,33 @@ static const float M_E = 2.71828182845904523536, // e
     M_SQRT1_2 = 0.707106781186547524401;         // 1/sqrt(2)
 
 // Simple functions (impl_simple.c)
-int m_absf(const float, float*);
-int m_signf(const float, float*);
+int m_absf(float*, const float);
+int m_signf(float*, const float);
 
 // Exponent functions (impl_exp.c)
-int m_sqrt(const float, float*);
-int m_exp(const float, float*);
-int m_ln(const float, float*);
-int m_log(const float, const float, float*);
-int m_pow(const float, const float, float*);
+int m_sqrt(float*, const float);
+int m_exp(float*, const float);
+int m_ln(float*, const float);
+int m_log(float*, const float, const float);
+int m_pow(float*, const float, const float);
 
 // Trig functions (impl_trig.c)
-int m_sin(const float, float*);
-int m_cos(const float, float*);
-int m_tan(const float, float*);
-int m_csc(const float, float*);
-int m_sec(const float, float*);
-int m_cot(const float, float*);
+int m_sin(float*, const float);
+int m_cos(float*, const float);
+int m_tan(float*, const float);
+int m_csc(float*, const float);
+int m_sec(float*, const float);
+int m_cot(float*, const float);
 
 // Inverse trig functions (impl_arc.c)
-int m_asin(const float, float*);
-int m_acos(const float, float*);
-int m_atan(const float, float*);
+int m_asin(float*, const float);
+int m_acos(float*, const float);
+int m_atan(float*, const float);
 
 // Stat functions (impl_stat.c)
-int m_zscore(const float, const float, const float, float*);
-int m_erf(const float, float*);
-int m_normal_cdf(const float, const float, const float, float*);
-int m_normal_cdf_range(const float, const float, const float, const float,
-                       float*);
+int m_zscore(float*, const float, const float, const float);
+int m_erf(float*, const float);
+int m_normal_cdf(float*, const float, const float, const float);
+int m_normal_cdf_range(float*, const float, const float, const float, const float);
 
 #endif

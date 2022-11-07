@@ -2,7 +2,7 @@
 
 #include "cmath.h"
 
-int m_absf(const float x, float* y)
+int m_absf(float* y, const float x)
 {
   union {
     long i;
@@ -15,7 +15,7 @@ int m_absf(const float x, float* y)
   return 0;
 }
 
-int m_signf(const float x, float* y)
+int m_signf(float* y, const float x)
 {
   *y = (x > 0) - (x < 0);
   return 0;
