@@ -1,4 +1,4 @@
-Justus' + (Suhas') Math Library in C
+Justus' + Suhas' Math Library in C
 
 Convention
 ==========

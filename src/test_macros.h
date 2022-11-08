@@ -6,7 +6,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-#define __VAR_FLOAT_TERMINATOR 420e69f
+#define __VAR_FLOAT_TERMINATOR -.8028533846193f 
 #define __PRINT_FUNCTION_SIGNATURE(f) printf("%s(", #f)
 #define __PRINT_FUNCTION_CLOSURE() printf(") = ")
 #define __FLOAT_FORMAT "%4.3f"
@@ -26,6 +26,13 @@ static void __print_variatic_floats(char* str_delim, ...)
   }
 }
 
+/// Nice way to print functions.
+/// Params:
+///   f: Function that:
+///     - Takes any number of floats arguments
+///     - Last parameter is a float* result buffer
+///     - Returns 0 on success, 1 on failure
+///   ...: Any number of floats to pass to f
 #define F_PRINT_CALL(f, ...)                                                   \
   {                                                                            \
     float __r_##f;                                                             \
