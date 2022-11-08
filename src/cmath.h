@@ -43,9 +43,10 @@ int m_acos(const float, float*);
 int m_atan(const float, float*);
 
 // Normal Distribution functions (norm_dist.c)
-int m_zscore(const float, const float, const float, float *);
-int m_normal_cdf(const float, const float, const float, float *);
-int m_normal_cdf_range(const float, const float, const float, const float, float*);
+int m_zscore(const float, const float, const float, float*);
+int m_normal_cdf(const float, const float, const float, float*);
+int m_normal_cdf_range(const float, const float, const float, const float,
+                       float*);
 int m_inv_normal_cdf_p(const float, float*);
 
 #endif
