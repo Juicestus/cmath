@@ -63,7 +63,7 @@ static void __print_variatic_floats(char* str_delim, ...)
     __PRINT_FUNCTION_SIGNATURE(f);                                             \
     __PRINT_FUNCTION_ARGUMENTS(__VA_ARGS__);                                   \
     __PRINT_FUNCTION_CLOSURE();                                                \
-    int pass;                                                                  \
+    unsigned int pass;                                                         \
     if (!f(__VA_ARGS__, &__r_##f)) {                                           \
       printf(__FLOAT_FORMAT, __r_##f);                                         \
       pass = __r_##f == e && !wf;                                              \
