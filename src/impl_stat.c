@@ -102,3 +102,11 @@ int m_inv_normal_cdf_p(const float p, float* result) // invnorm(x, 0, 1, LEFT)
       (p < 0.5) ? -_inverse_dist_approx(log_p) : _inverse_dist_approx(log_1p);
   return 0;
 }
+
+int m_normal_pdf(const float z, float* result)
+{
+  float epow;
+  m_pow(M_E, -0.5 * z * z, &epow);
+  *result = 1.0 / (M_SQRT2PI * epow);
+  return 0;
+}
