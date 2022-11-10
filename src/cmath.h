@@ -16,8 +16,8 @@ static const float M_E = 2.71828182845904523536, // e
     M_2_PI = 0.636619772367581343076,            // 2/pi
     M_2_SQRTPI = 1.12837916709551257390,         // 2/sqrt(pi)
     M_SQRT2 = 1.41421356237309504880,            // sqrt(2)
-    M_SQRT1_2 = 0.707106781186547524401;         // 1/sqrt(2)
-
+    M_SQRT1_2 = 0.707106781186547524401,         // 1/sqrt(2)
+    M_SQRT2PI = 2.50662827463100050242;          // sqrt(2*pi)
 // Simple functions (impl_simple.c)
 int m_absf(const float, float*);
 int m_signf(const float, float*);
@@ -43,9 +43,11 @@ int m_acos(const float, float*);
 int m_atan(const float, float*);
 
 // Normal Distribution functions (norm_dist.c)
-int m_zscore(const float, const float, const float, float *);
-int m_normal_cdf(const float, const float, const float, float *);
-int m_normal_cdf_range(const float, const float, const float, const float, float*);
+int m_zscore(const float, const float, const float, float*);
+int m_normal_cdf(const float, const float, const float, float*);
+int m_normal_cdf_range(const float, const float, const float, const float,
+                       float*);
 int m_inv_normal_cdf_p(const float, float*);
+int m_normal_pdf(const float, float*);
 
 #endif
