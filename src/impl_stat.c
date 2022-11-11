@@ -89,24 +89,50 @@ static float _inverse_dist_approx(const float t)
                  (((IDP_D2 * t + IDP_D1) * t + IDP_D0) * t + 1.0);
 }
 
-// invnorm with percentile argument, later add generic invnorm and delete this
-int m_inv_normal_cdf_p(const float p, float* result) // invnorm(x, 0, 1, LEFT)
+int m_inv_normal_cdf_p(const float p, float* result) // invnorm(p, 0, 1, LEFT)
 {
-  if (p < 0.0 || p > 1.0) *result = 0;
-  float neg_p, log_p, pos_p, log_1p;
-  m_log(p, M_E, &neg_p);
-  m_sqrt(-2. * neg_p, &log_p);
-  m_log(1.0 - p, M_E, &pos_p);
-  m_sqrt(-2. * pos_p, &log_1p);
-  *result =
-      (p < 0.5) ? -_inverse_dist_approx(log_p) : _inverse_dist_approx(log_1p);
+  if (p < 0.0 || p > 1.0) return 1;
+  float sign, log;
+  if (p < 0.5) {
+    m_log(p, M_E, &sign);
+    m_sqrt(-2. * sign, &log);
+    *result = -_inverse_dist_approx(log);
+  }
+  else {
+    m_log(1.0 - p, M_E, &sign);
+    m_sqrt(-2. * sign, &log);
+    *result = _inverse_dist_approx(log);
+  }
   return 0;
 }
 
-int m_normal_pdf(const float z, float* result)
+int m_inv_normal_cdf(const float p, const float mean, const float std,
+                     float* result) // invnorm(p, mean, std, LEFT)
 {
+  if (std == 0 || p >= 1) return 1;
+  float inv_p;
+  m_inv_normal_cdf_p(p, &inv_p);
+  *result = mean + std * inv_p;
+  return 0;
+}
+
+int m_normal_pdf(const float z, const float mean, const float std,
+                 float* result) // normalpdf(x, mean, std)
+{
+  static const float inv_sqrt_2pi = 0.3989422804014327;
+  float a = (z - mean) / std;
   float epow;
-  m_pow(M_E, -0.5 * z * z, &epow);
-  *result = 1.0 / (M_SQRT2PI * epow);
+  m_pow(M_E, -0.5f * a * a, &epow);
+  *result = inv_sqrt_2pi / std * epow;
+  return 0;
+}
+
+int m_geometric_pdf(const float p, const int k,
+                    float* result) // geometpdf(p, k) do we need this?
+{
+  if (p <= 0 || p >= 1 || k < 0) return 1;
+  float pow;
+  m_pow(1 - p, k - 1, &pow);
+  *result = p * pow;
   return 0;
 }
