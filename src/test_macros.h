@@ -8,6 +8,7 @@
 #include <string.h>
 
 #define __VAR_FLOAT_TERMINATOR -.8028533846193f
+#define __EPSILON_ERROR 0.0000000000001f
 #define __PRINT_FUNCTION_SIGNATURE(f) printf("%s(", #f)
 #define __PRINT_FUNCTION_CLOSURE() printf(") = ")
 #define __FLOAT_FORMAT "%4.3f"
@@ -66,7 +67,8 @@ static void __print_variatic_floats(char* str_delim, ...)
     unsigned int pass;                                                         \
     if (!f(__VA_ARGS__, &__r_##f)) {                                           \
       printf(__FLOAT_FORMAT, __r_##f);                                         \
-      pass = __r_##f == e && !wf;                                              \
+      pass = __r_##f <= e + __EPSILON_ERROR && \
+          __r_##f >=  - __EPSILON_ERROR && !wf;                                              \
     }                                                                          \
     else {                                                                     \
       printf("ERROR");                                                         \
