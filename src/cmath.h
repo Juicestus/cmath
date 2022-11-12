@@ -16,7 +16,8 @@ static const float M_E = 2.71828182845904523536, // e
     M_2_PI = 0.636619772367581343076,            // 2/pi
     M_2_SQRTPI = 1.12837916709551257390,         // 2/sqrt(pi)
     M_SQRT2 = 1.41421356237309504880,            // sqrt(2)
-    M_SQRT1_2 = 0.707106781186547524401;         // 1/sqrt(2)
+    M_1_SQRT_2 = 0.707106781186547524401,        // 1/sqrt(2)
+    M_1_SQRT_2PI = 0.3989422804014327;           // 1/sqrt(2 pi)
 
 // Simple functions (impl_simple.c)
 int m_absf(const float, float*);

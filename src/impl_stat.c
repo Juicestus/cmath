@@ -17,13 +17,13 @@ static float _erf(float x)
 {
   int sign = (x < 0) ? -1 : 1;
   m_absf(x, &x);
-  float epow;
-  m_pow(M_E, -x * x, &epow);
+  float r_pow;
+  m_pow(M_E, -x * x, &r_pow);
   const float t = 1.0 / (1.0 + ERF_P * x);
   const float y =
       1.0 -
       (((((ERF_A5 * t + ERF_A4) * t) + ERF_A3) * t + ERF_A2) * t + ERF_A1) * t *
-          epow;
+          r_pow;
   return sign * y;
 }
 
@@ -41,7 +41,7 @@ static const double ERFC_A1 = 1.26551223, ERFC_A2 = 1.00002368,
 
 static float _erfc(const float x) // we don't need this yet
 {
-  float t, z, ans, epow;
+  float t, z, ans, r_pow;
   m_absf(x, &z);
   t = 1.0 / (1.0 + 0.5 * z);
   m_pow(M_E,
@@ -55,10 +55,11 @@ static float _erfc(const float x) // we don't need this yet
                                           t * (ERFC_A8 +
                                                t * (ERFC_A9 +
                                                     t * ERFC_A10)))))))),
-        &epow);
-
-  ans = t * epow;
-  return (x >= 0.0) ? ans : 2.0 - ans;
+        &r_pow);
+  // This could be repeated operation?
+  // This will take some testing
+  ans = t * r_pow;
+  return x >= 0. ? ans : 2. - ans;
 }
 
 // overload with 3 args or 4? if 3 args then left is implied as -1E99
@@ -73,10 +74,10 @@ int m_normal_cdf_range(const float left, const float right, const float mean,
                        const float std, float* result)
 {
   if (std == 0 || left > right) return 1;
-  float left_cdf, right_cdf;
-  m_normal_cdf(left, mean, std, &left_cdf);
-  m_normal_cdf(right, mean, std, &right_cdf);
-  *result = right_cdf - left_cdf;
+  float r_left_cdf, r_right_cdf;
+  m_normal_cdf(left, mean, std, &r_left_cdf);
+  m_normal_cdf(right, mean, std, &r_right_cdf);
+  *result = r_right_cdf - r_left_cdf;
   return 0;
 }
 
@@ -89,41 +90,32 @@ static float _inverse_dist_approx(const float t)
                  (((IDP_D2 * t + IDP_D1) * t + IDP_D0) * t + 1.0);
 }
 
-int m_inv_normal_cdf_p(const float p, float* result) // invnorm(p, 0, 1, LEFT)
+int m_inv_normal_cdf_p(const float p, float* result)
 {
   if (p < 0.0 || p > 1.0) return 1;
-  float sign, log;
-  if (p < 0.5) {
-    m_log(p, M_E, &sign);
-    m_sqrt(-2. * sign, &log);
-    *result = -_inverse_dist_approx(log);
-  }
-  else {
-    m_log(1.0 - p, M_E, &sign);
-    m_sqrt(-2. * sign, &log);
-    *result = _inverse_dist_approx(log);
-  }
+  float r_log, r_sqrt;
+  m_log(p < .5 ? p : 1. - p, M_E, &r_log);
+  m_sqrt(-2. * r_log, &r_sqrt);
+  *result = -_inverse_dist_approx(r_sqrt);
   return 0;
 }
 
 int m_inv_normal_cdf(const float p, const float mean, const float std,
-                     float* result) // invnorm(p, mean, std, LEFT)
-{
-  if (std == 0 || p >= 1) return 1;
-  float inv_p;
-  m_inv_normal_cdf_p(p, &inv_p);
-  *result = mean + std * inv_p;
+                     float* result) 
+{  if (std == 0 || p >= 1) return 1;
+  float r_inv_p;
+  m_inv_normal_cdf_p(p, &r_inv_p);
+  *result = mean + std * r_inv_p;
   return 0;
 }
 
 int m_normal_pdf(const float z, const float mean, const float std,
-                 float* result) // normalpdf(x, mean, std)
+                 float* result)
 {
-  static const float inv_sqrt_2pi = 0.3989422804014327;
   float a = (z - mean) / std;
-  float epow;
-  m_pow(M_E, -0.5f * a * a, &epow);
-  *result = inv_sqrt_2pi / std * epow;
+  float r_pow;
+  m_pow(M_E, -0.5f * a * a, &r_pow);
+  *result = M_1_SQRT_2PI / std * r_pow;
   return 0;
 }
 
@@ -131,8 +123,8 @@ int m_geometric_pdf(const float p, const int k,
                     float* result) // geometpdf(p, k) do we need this?
 {
   if (p <= 0 || p >= 1 || k < 0) return 1;
-  float pow;
-  m_pow(1 - p, k - 1, &pow);
-  *result = p * pow;
+  float r_pow;
+  m_pow(1 - p, k - 1, &r_pow);
+  *result = p * r_pow;
   return 0;
 }
