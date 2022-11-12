@@ -53,5 +53,6 @@ int m_inv_normal_cdf(const float, const float, const float, float*);
 int m_normal_pdf(const float z, const float mean, const float std,
                  float* result);
 int m_geometric_pdf(const float, const int, float*);
+int m_erfc(float, float*);
 
 #endif
