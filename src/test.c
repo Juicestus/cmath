@@ -13,7 +13,5 @@ int main(const int argc, const char** argv)
   // F_TEST_CASE(ERROR, m_test, 2., 3.);
   // F_TEST_CASE(ERROR, m_test, 2., 2.);
 
-  
-
   return 0;
 }

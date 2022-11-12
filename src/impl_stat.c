@@ -10,8 +10,8 @@ int m_zscore(const float x, const float mean, const float std, float* result)
 }
 
 static const float ERF_A1 = 0.254829592, ERF_A2 = -0.284496736,
-                    ERF_A3 = 1.421413741, ERF_A4 = -1.453152027,
-                    ERF_A5 = 1.061405429, ERF_P = 0.3275911;
+                   ERF_A3 = 1.421413741, ERF_A4 = -1.453152027,
+                   ERF_A5 = 1.061405429, ERF_P = 0.3275911;
 
 static float _erf(float x)
 {
@@ -36,7 +36,6 @@ int m_erf(float x, float* result)
 static const float ERFC_CONSTS[] = {
     1.26551223, 1.00002368,  0.37409196, 0.09678418,  -0.18628806,
     0.27886807, -1.13520398, 1.48851587, -0.82215223, 0.17087277};
-
 
 static float _erfc(const float x)
 {
