@@ -13,10 +13,22 @@ static double _arcsin_abramowitz_aprox(const double x)
                             0.0187293 * x * x * x);
 }
 
+static double _arcsin_taylor_approx(const float x) {
+  const float x_sq = x * x;
+  float term = x, result = x, coef = 1;
+  for (float d = 3; d < 2 * TAYLOR_ITERS; d += 2) 
+  {
+    coef *= (d - 2) / (d - 1);
+    term *= x_sq;
+    result += coef * (term / d);
+  }
+  return result;
+}
+
 int m_asin(const float ratio, float* result)
 {
   if (-1 > ratio || ratio > 1) return 1;
-  *result = _arcsin_abramowitz_aprox(ratio);
+  *result = _arcsin_taylor_approx(ratio);
   return 0;
 }
 

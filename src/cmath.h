@@ -4,6 +4,8 @@
 #ifndef __CMATH_H__
 #define __CMATH_H__
 
+#define TAYLOR_ITERS 200
+
 static const float M_E = 2.71828182845904523536, // e
     M_LOG2E = 1.44269504088896340736,            // log2(e)
     M_LOG10E = 0.434294481903251827651,          // log10(e)

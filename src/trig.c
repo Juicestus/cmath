@@ -2,13 +2,11 @@
 
 #include "cmath.h"
 
-static const int TERMS = 30;
-
 static float _sin_taylor_aprox(const float theta)
 {
   double term = theta, result = theta;
   const double theta_sq = theta * theta;
-  for (int iter = 3; iter < TERMS; iter += 2)
+  for (int iter = 3; iter < 2 * TAYLOR_ITERS; iter += 2)
     result += (term *= -theta_sq / iter / (iter - 1));
   return result;
 }

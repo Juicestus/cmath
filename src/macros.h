@@ -8,10 +8,10 @@
 #include <string.h>
 
 #define __VAR_FLOAT_TERMINATOR -.8028533846193f
-#define __EPSILON_ERROR 0.0000000000001f
+#define __EPSILON_ERROR 0.00001f // 1e-4f
 #define __PRINT_FUNCTION_SIGNATURE(f) printf("%s(", #f)
 #define __PRINT_FUNCTION_CLOSURE() printf(") = ")
-#define __FLOAT_FORMAT "%4.3f"
+#define __FLOAT_FORMAT "%4.12f"
 #define __PRINT_FUNCTION_ARGUMENTS(...)                                        \
   __print_variatic_floats(", ", ##__VA_ARGS__, __VAR_FLOAT_TERMINATOR)
 
