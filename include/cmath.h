@@ -68,15 +68,14 @@ float m_acos(const float);
 float m_atan(const float);
 
 // Statistics functions (stats.c)
-// int m_zscore(const float, const float, const float, float*);
-// int m_normal_cdf(const float, const float, const float, float*);
-// int m_normal_cdf_range(const float, const float, const float, const float,
-//                        float*);
-// int m_inv_normal_cdf_p(const float, float*);
-// int m_inv_normal_cdf(const float, const float, const float, float*);
-// int m_normal_pdf(const float z, const float mean, const float std,
-//                  float* result);
-// int m_geometric_pdf(const float, const int, float*);
-// int m_erfc(float, float*);
+float m_erf(float);
+float m_erfc(float);
+float m_zscore(const float, const float, const float);
+float m_normal_cdf(const float, const float, const float);
+float m_normal_cdf_range(const float, const float, const float, const float);
+float m_inv_normal_cdf_p(const float);
+float m_inv_normal_cdf(const float, const float, const float);
+float m_normal_pdf(const float z, const float mean, const float std);
+float m_geometric_pdf(const float, const int);
 
 #endif

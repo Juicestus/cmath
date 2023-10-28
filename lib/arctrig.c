@@ -1,5 +1,3 @@
-/// @: Justus Languell <jlanguell@extendable.co>
-
 #include "cmath.h"
 
 static float _arcsin_taylor_approx(const float x) {

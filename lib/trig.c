@@ -1,5 +1,3 @@
-/// @: Justus Languell <jlanguell@extendable.co>
-
 #include "cmath.h"
 
 static float _sin_taylor_aprox(const float theta)

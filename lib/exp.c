@@ -1,5 +1,3 @@
-/// @: Justus Languell <jlanguell@extendable.co>
-
 #include "cmath.h"
 
 static const float SMOL = 1e-6;

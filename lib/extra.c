@@ -1,5 +1,3 @@
-/// @: Justus Languell <jlanguell@extendable.co>
-
 #include "cmath.h"
 
 bool m_isnan(const float x) 
@@ -11,6 +9,7 @@ bool m_isposinf(const float x)
 {
   return x == M_INF;
 }
+
 bool m_isneginf(const float x) 
 {
   return x == -M_INF;
